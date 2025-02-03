@@ -94,4 +94,9 @@ Pozostałe typy zmiennych:
 
 `typeof null` zwraca `object`, ponieważ jest to historyczny błąd w JavaScript, gdzie `null` traktowane jest jako obiekt. Natomiast `console.log(nll, typeof nll)` wyświetli wartość zmiennej (np. `null`) oraz jej typ, który w przypadku null będzie `object`.
 
+### 2. Rozróżnianie obiektów, tablic i funkcji
+
+W JavaScript obiekty tworzy się za pomocą literałów `{}` z parami klucz-wartość, tablice za pomocą nawiasów kwadratowych `[]`, a funkcje deklaruje się za pomocą słowa kluczowego `function`, np. `function greet() { console.log("Hello, world!"); }`.
+
+Tablice są specjalnym przypadkiem obiektów, dlatego operator `typeof` zwraca dla nich `object`, mimo że tablica posiada dodatkowe właściwości i metody typowe dla tablic. Aby dokładniej sprawdzić, czy zmienna jest tablicą, można skorzystać z metody `Array.isArray()`, która zwróci wartość `true` tylko dla tablic. Zatem, choć `typeof` nie rozróżnia tablic od innych obiektów, `Array.isArray(tab)` pozwala na precyzyjne określenie, czy zmienna to tablica.
 

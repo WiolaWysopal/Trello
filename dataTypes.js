@@ -15,5 +15,20 @@ console.log(nll, typeof nll);
 console.log(undef, typeof undef);
 console.log(sym, typeof sym);
 
-
+// -------------------- \\
 console.log(typeof null);
+
+// --------- TYPY DANYCH CZ. 2 ----------- \\
+
+var obj = {name: "Alice", age: 25}
+let tab = [1, 2, 3]
+
+function greet() { console.log("Hi"); }
+
+console.log(obj, typeof obj);
+console.log(tab, typeof tab);
+console.log(greet, typeof greet);
+
+// Sprawdzanie czy zmienna jest tablicą:
+console.log("Is tab array? ", Array.isArray(tab))
+
