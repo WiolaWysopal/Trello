@@ -1,6 +1,7 @@
 # Trello
 
-## 1. Wprowadzenie do JavaScript
+## Wprowadzenie 
+### 1. Wprowadzenie do JavaScript
 
 - Etapy wykonania ćwiczenia:
 
@@ -21,7 +22,7 @@
 
 - Tekst przekazany do `console.log()` nie jest interpretowany jako wyrażenie matematyczne.
 
-## 2. Zmienne w JavaScript
+### 2. Zmienne w JavaScript
 
 - Etapy wykonania ćwiczenia:
     - Zadeklarowanie zmiennych za pomocą `var`, `let` i `const`.
@@ -40,7 +41,7 @@
 - `let` i const mają zasięg blokowy.
 - `const` wymaga inicjalizacji i nie może być ponownie przypisane.
 
-## 3. Eksperyment z hoistingiem
+### 3. Eksperyment z hoistingiem
 
 **Definicja:**
 
@@ -57,7 +58,7 @@
 - `let` i `const` są hoistowane, ale nie można ich używać przed deklaracją.
 - `const` wymaga przypisania wartości już w momencie deklaracji.
 
-## 4. Temporal Dead Zone (TDZ)
+### 4. Temporal Dead Zone (TDZ)
 
 **Definicja:**
 
@@ -72,3 +73,25 @@ _Temporal Dead Zone_ to okres między hoistingiem a deklaracją zmiennej, w któ
 
 - TDZ zapobiega używaniu zmiennych `let` i `const` przed ich inicjalizacją.
 - Mechanizm ten poprawia przewidywalność kodu i pomaga uniknąć błędów wynikających z przypadkowego użycia niezainicjalizowanej zmiennej.
+
+## Typy danych
+
+### 1. Rozpoznawanie typów
+
+`typeof` - zwraca typ wartości operandu. Przykład:
+    
+    console.log(typeof 15) > "number"
+
+Pozostałe typy zmiennych:
+- `string` - ciąg znaków
+- `number` - liczba 
+- `bigint` - wartości wykraczające poza zakres prymitywu `number`
+- `boolean` - jedna z dwóch wartości: `true` lub `false`
+- `null` - oznacza brak wartości obiektu
+- `undefined` - dla wartości niezdefiniowanych
+- `symbol` - unikalna i niezmienialna wartość prymitywna, używana głównie jako klucz własności obiektu, aby uniknąć konfliktów nazw
+
+
+`typeof null` zwraca `object`, ponieważ jest to historyczny błąd w JavaScript, gdzie `null` traktowane jest jako obiekt. Natomiast `console.log(nll, typeof nll)` wyświetli wartość zmiennej (np. `null`) oraz jej typ, który w przypadku null będzie `object`.
+
+
