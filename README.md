@@ -113,4 +113,40 @@ W JS  `===` jest operatorem porównania ścisłego i służy do porównywania wa
     5 == '5' > true
     5 === '5' > false
 
+### Tryb ścisły i nieścisły w JS
 
+| Cecha | Tryb ścisły    | Tryb nieścisły |
+| --- | -------- | ------- |
+| W kodzie | klauzula `"use strict"`    | domyślnie |
+|Deklaracja zmiennych| Wymagana: `var`, `let`, `const`  | nieobowiązkowa    |
+|Zmienność stałych| Przypisanie do `const` generuje błąd| możliwe przypisanie do stałej     |
+| Instrukcja `with` | Zabroniona    | Dozwolona    |
+| Błędy | Więcej błędów i ostrzeżeń przy potencjalnych problemach    | Mniej błędów, ale łatwiejsze do pominięcia   |
+
+
+
+**Wnioski**
+
+- Konwersja z ciągów znaków:
+
+    - Ciągi takie jak `" "`, `"0xFF"`, `"075"` i inne są traktowane jako ciągi znaków i konwertowane na liczby dziesiętne.
+    - `"0xFF"` jest traktowane jako liczba szesnastkowa i konwertowane na `255`.
+    - `"075"` jest traktowane jako liczba dziesiętna i konwertowane na `75`.
+
+- Konwersja z pustego ciągu i białych znaków:
+
+    - `" "` (ciąg zawierający tylko białe znaki) jest konwertowane na `0` w obu trybach.
+    - `""` (pusty ciąg) jest konwertowane na `0` w obu trybach.
+
+- Konwersja z ciągu, który nie jest liczbą:
+
+    - Ciągi takie jak `"abc"` konwertują na `NaN` w obu trybach, ponieważ nie są liczbami.
+
+- Różnica między `Number()` a `+`:
+
+    - W przypadku użycia `Number(value)` i operatora `+value` (konwersja niejawna), wyniki będą identyczne w przypadku większości typów danych.
+    - Operator `+` może być użyty do konwersji w sposób bardziej skrócony, ale zachowa te same zasady konwersji jak `Number()`.
+
+**Porównanie trybu ścisłego i nieścisłego:**
+
+W kontekście konwersji, dla przedstawionych przykładów nie ma istotnej różnicy między trybem ścisłym a nieścisłym. Błędy związane z rzutowaniem i zmiennymi (np. `undefined`) są bardziej restrykcyjnie traktowane w trybie ścisłym.
