@@ -150,3 +150,26 @@ W JS  `===` jest operatorem porównania ścisłego i służy do porównywania wa
 **Porównanie trybu ścisłego i nieścisłego:**
 
 W kontekście konwersji, dla przedstawionych przykładów nie ma istotnej różnicy między trybem ścisłym a nieścisłym. Błędy związane z rzutowaniem i zmiennymi (np. `undefined`) są bardziej restrykcyjnie traktowane w trybie ścisłym.
+
+
+## Struktury Danych
+
+W JS tablice nie wymagają jednego typu danych, tak jak w C++, na przykład: 
+    `let arr = [10, 5, 8, 20, 1, "2"]`
+
+**Metody `.map()`, `.filter()` i `.reduce()`:**
+
+| Metoda | Tworzy nową tablicę | Zmienia oryginalną tablicę | Zastosowanie |
+| --- | -------- | ------- | ------- |
+| `.map()` | ✅ Tak | ❌ Nie | Zmiana wartości w tablicy |
+| `.filter()`| ✅ Tak | ❌ Nie | Filtrowanie elementów tablicy| 
+| `.reduce()`| ❌ Nie| ❌ Nie | Obliczenia na tablicy |
+
+
+**Metoda `.sort()`**
+
+W JavaScript metoda `sort()` domyślnie sortuje elementy tablicy jako ciągi znaków, a nie jako liczby, dlatego aby poprawnie sortować liczby, należy podać własną funkcję porównującą. Przykład:
+   
+    array.sort((a, b) => a - b);
+W tablicy o nazwie `array` elementy zostaną posortowane rosnąco.
+
