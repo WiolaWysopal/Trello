@@ -100,3 +100,17 @@ W JavaScript obiekty tworzy się za pomocą literałów `{}` z parami klucz-wart
 
 Tablice są specjalnym przypadkiem obiektów, dlatego operator `typeof` zwraca dla nich `object`, mimo że tablica posiada dodatkowe właściwości i metody typowe dla tablic. Aby dokładniej sprawdzić, czy zmienna jest tablicą, można skorzystać z metody `Array.isArray()`, która zwróci wartość `true` tylko dla tablic. Zatem, choć `typeof` nie rozróżnia tablic od innych obiektów, `Array.isArray(tab)` pozwala na precyzyjne określenie, czy zmienna to tablica.
 
+## Rzutowanie typów
+
+**Wnioski:**
+- Operator `+value` w JavaScript to sposób na niejawną konwersję wartości do liczby. Działa podobnie jak `Number(value)`, ale nie wywołuje jawnej funkcji, tylko wykorzystuje mechanizm wymuszonej konwersji (coercion). Jeśli konwersja nie jest możliwa, zwróci `NaN` - _Not a Number_.
+- W przypadku jawnej konwersji (`Number(value)`) JavaScript pozwala przekonwertować `BigInt` na `Number`, ale nie działa to dla operatora `+`.
+
+**Różnica między `==` a `===`:**
+
+W JS  `===` jest operatorem porównania ścisłego i służy do porównywania wartości oraz typów danych dwóch operandów. Natomiast `==` to operator porównania luźnego, który porównuje wartości dwóch operandów, ale przeprowadza konwersję typów przed porównaniem. Oznacza to, że jeśli operandy mają różne typy, JavaScript spróbuje je przekonwertować na kompatybilne typy, aby wykonać porównanie. Przykład:
+
+    5 == '5' > true
+    5 === '5' > false
+
+
