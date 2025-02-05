@@ -200,3 +200,35 @@ Składnia:
         // Kod do wykonania dla każdego elementu
     }
 
+### Tablice o stałym typie
+
+`Typed Arrays` to specjalne tablice w JavaScript, które przechowują dane w sposób bardziej wydajny niż zwykłe tablice (`Array`). Każdy element ma stały typ liczbowy i zajmuje określoną ilość bajtów w pamięci. Tablice typowane tworzy się przez literał `new` i nazwę typu tablicy wywoływany jako konstruktor, np `let set = new Uint8Array(liczba_elementow)`.
+
+**Rodzaje `Typed Arrays`:**
+
+| Typ | Bajty na element | Zakres wartości |
+|-----|------------------|-----------------|
+|`Int8Array`|1|-128 do 127|
+|`Uint8Array`|1|0 do 255|
+|`Uint8ArrayClampedArray`|1|0 do 255 z zaokrągleniem|
+|`Int16Array`|2|-32.768 do 32.767|
+|`Uint16Array`|2|0 do 65.535|
+|`Int32Array`|4|-2³¹ do 2³¹-1|
+|`Uint32Array`|4|0 do 2³²-1|
+|`Float32Array`|4|Liczby zmiennoprzecinkowe|
+|`Float64Array`|8|Dokładniejsze liczby zmiennoprzecinkowe|
+
+`Uint8ArrayClampedArray`:
+w przeciwieństwie do `Uint8Array`, wartości nie przekraczają tego zakresu, ponieważ są przycinane (_clamped_), a nie obcinane `modulo 256`.
+
+#### ArrayBuffer i DataView
+
+Standardowe tablice (`Array`) dostępne w JS są dynamiczne i mogą przechowywać różne typy danych. Jeśli jednak chcemy bezpośrednio zarządzać pamięcią, należy skorzystać z `ArrayBuffer` i `DataView`, które pozwalają pracować na surowych danych binarnych.
+
+`ArrayBuffer` to niskopoziomowy bufor pamięci, a `DataView` umożliwia odczyt i zapis różnych typów danych.
+
+    WAŻNE:
+    Wszystkie wartośći w `ArrayBuffer` zapisywane są jako wartości binarne (bajty), ale często wyświetla się je w formacie heksadecymalnym dla czytelności.
+
+
+
