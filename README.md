@@ -31,7 +31,7 @@
 
 **Efekt wykonania poleceń:**
 
-- Próba zmiany wartości const skutkuje błędem: `TypeError: Assignment to constant variable`.
+- Próba zmiany wartości `const` skutkuje błędem: `TypeError: Assignment to constant variable`.
 - `console.log()` poprawnie wyświetla wartości zmiennych.
 - `var` działa globalnie, `let` i `const` są ograniczone do swojego bloku.
 
@@ -49,8 +49,8 @@
 
 **Efekt wykonania poleceń:**
 
-- `var` jest hoistowany z wartością undefined.
-- `let` i const również są hoistowane, ale znajdują się w „Temporal Dead Zone” (TDZ), co powoduje ReferenceError przy próbie ich użycia przed deklaracją.
+- `var` jest hoistowany z wartością `undefined`.
+- `let` i `const` również są hoistowane, ale znajdują się w _Temporal Dead Zone_ (TDZ), co powoduje `ReferenceError` przy próbie ich użycia przed deklaracją.
 
 **Wnioski:**
 
@@ -62,7 +62,7 @@
 
 **Definicja:**
 
-_Temporal Dead Zone_ to okres między hoistingiem a deklaracją zmiennej, w którym jej użycie prowadzi do ReferenceError.
+_Temporal Dead Zone_ to okres między hoistingiem a deklaracją zmiennej, w którym jej użycie prowadzi do `ReferenceError`.
 
 **Efekt wykonania poleceń:**
 
@@ -71,7 +71,7 @@ _Temporal Dead Zone_ to okres między hoistingiem a deklaracją zmiennej, w któ
 
 **Wnioski:**
 
-- TDZ zapobiega używaniu zmiennych `let` i `const` przed ich inicjalizacją.
+- _TDZ_ zapobiega używaniu zmiennych `let` i `const` przed ich inicjalizacją.
 - Mechanizm ten poprawia przewidywalność kodu i pomaga uniknąć błędów wynikających z przypadkowego użycia niezainicjalizowanej zmiennej.
 
 ## Typy danych
@@ -84,13 +84,12 @@ _Temporal Dead Zone_ to okres między hoistingiem a deklaracją zmiennej, w któ
 
 Pozostałe typy zmiennych:
 - `string` - ciąg znaków
-- `number` - liczba 
+- `number` - liczba
 - `bigint` - wartości wykraczające poza zakres prymitywu `number`
 - `boolean` - jedna z dwóch wartości: `true` lub `false`
 - `null` - oznacza brak wartości obiektu
 - `undefined` - dla wartości niezdefiniowanych
 - `symbol` - unikalna i niezmienialna wartość prymitywna, używana głównie jako klucz własności obiektu, aby uniknąć konfliktów nazw
-
 
 `typeof null` zwraca `object`, ponieważ jest to historyczny błąd w JavaScript, gdzie `null` traktowane jest jako obiekt. Natomiast `console.log(nll, typeof nll)` wyświetli wartość zmiennej (np. `null`) oraz jej typ, który w przypadku null będzie `object`.
 
@@ -123,9 +122,7 @@ W JS  `===` jest operatorem porównania ścisłego i służy do porównywania wa
 | Instrukcja `with` | Zabroniona    | Dozwolona    |
 | Błędy | Więcej błędów i ostrzeżeń przy potencjalnych problemach    | Mniej błędów, ale łatwiejsze do pominięcia   |
 
-
-
-**Wnioski**
+**Wnioski:**
 
 - Konwersja z ciągów znaków:
 
@@ -172,4 +169,34 @@ W JavaScript metoda `sort()` domyślnie sortuje elementy tablicy jako ciągi zna
    
     array.sort((a, b) => a - b);
 W tablicy o nazwie `array` elementy zostaną posortowane rosnąco.
+
+### `Map` oraz `Set`
+
+`Set` usuwa powtarzające się elementy, pozostawiając tylko ich unikaty. `Map` to wbudowana struktura danych w JavaScript, która przechowuje pary klucz-wartość, gdzie kluczami mogą być liczby, obiekty, funkcje, a nie tylko stringi.
+
+**Metody i dostęp:**
+- `Map`:
+    - `set(key, value)` – dodaje parę klucz -> wartość do mapy.
+     - `get(key)` – zwraca wartość przypisaną do klucza (lub `undefined`, jeśli klucz nie istnieje).
+    - `has(key)` – sprawdza, czy dany klucz istnieje (`true/false`)
+
+- `Set`:
+    - `add(value)` – dodaje wartość do zbioru (`Set` nie przechowuje duplikatów).
+    - `has(value)` – sprawdza, czy wartość istnieje (`true/false`).
+    - `delete(value)` – usuwa wartość, jeśli istnieje.
+
+**Pętla `for ... of`:**
+
+`for...of` to pętla, która służy do iterowania po iterowalnych obiektach, takich jak:
+- tablice (`Array`)
+- zbiory (`Set`)
+- mapy (`Map`)
+- łańcuchy znaków (`String`)
+
+Składnia:
+
+    for (let element of kolekcja) 
+    {
+        // Kod do wykonania dla każdego elementu
+    }
 
