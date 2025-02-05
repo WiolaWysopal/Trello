@@ -230,3 +230,41 @@ Standardowe tablice (`Array`) dostępne w JS są dynamiczne i mogą przechowywa�
     WAŻNE:
     Wszystkie wartośći w `ArrayBuffer` zapisywane są jako wartości binarne (bajty), ale często wyświetla się je w formacie heksadecymalnym dla czytelności.
 
+### Prównanie przez referencję
+
+Porównanie przez referencję w JS ma miejsce w przypadku obiektów i struktur opartych na obiektach. Oznacza to, że jeśli dwie zmienne przechowują obiekt, to tak naprawdę przechowują adres (referencję) do tego obiektu w pamięci, a nie jego wartość.
+
+- Typy porównywane przez referencję:
+    - Obiekty (`{}`)
+    - Tablice (`[]`)
+    - Funkcje (`function() {}`)
+    - Mapy (`new Map()`), 
+    - Zbiory (`new Set()`)
+    - Daty (`new Date()`)
+- Typy porównywane przez wartość (nie referencję):
+    - Wszystkie `prymitywy`:
+    - Liczby (`Number`)
+    - Napisy (`String`)
+    - Wartości logiczne (`Boolean`)
+    - `null`, `undefined`
+    - `Symbol`
+    - `BigInt`
+
+Przykład:
+
+    let obj1 = { a: 1 };
+    let obj2 = { a: 1 };
+    console.log(obj1 == obj2); // false -> porównanie adresu do obiektu a nie jego wartości
+    console.log(obj1 === obj2); // false -> jw.
+
+Aby otrzymać wartość `true`, należałoby zmienić deklarację `obj2` w następujący sposób:
+
+    let obj1 = { a: 1 };
+    let obj2 = obj1;
+    console.log(obj1 == obj2);
+    console.log(obj1 === obj2);
+
+**Metoda `Object.is()`:**
+
+Metoda `Object.is()` porównuje dwie wartości pod kątem równości. Zwraca `true`, jeśli wartości są identyczne, a `false` w przeciwnym przypadku. Różni się jednak od operatora `===` w niektórych przypadkach, takich jak porównanie `NaN` (gdzie `Object.is()` zwraca `true`, a `===` `false`) oraz porównanie `+0` i `-0` (które `Object.is()` standardowo uznaje je za różne).
+
