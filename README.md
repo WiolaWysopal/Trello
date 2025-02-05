@@ -230,5 +230,3 @@ Standardowe tablice (`Array`) dostępne w JS są dynamiczne i mogą przechowywa�
     WAŻNE:
     Wszystkie wartośći w `ArrayBuffer` zapisywane są jako wartości binarne (bajty), ale często wyświetla się je w formacie heksadecymalnym dla czytelności.
 
-
-
