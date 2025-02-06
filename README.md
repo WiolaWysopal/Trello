@@ -268,3 +268,54 @@ Aby otrzymać wartość `true`, należałoby zmienić deklarację `obj2` w nast�
 
 Metoda `Object.is()` porównuje dwie wartości pod kątem równości. Zwraca `true`, jeśli wartości są identyczne, a `false` w przeciwnym przypadku. Różni się jednak od operatora `===` w niektórych przypadkach, takich jak porównanie `NaN` (gdzie `Object.is()` zwraca `true`, a `===` `false`) oraz porównanie `+0` i `-0` (które `Object.is()` standardowo uznaje je za różne).
 
+## Sterowanie przepływem
+
+### **Pętle w JavaScript**
+
+#### 1. **Pętla `for`**
+- **Zastosowanie:** Do iteracji po tablicach lub strukturach danych, które są liczbowe.
+- **Działanie:** Pętla wykonuje się, dopóki spełniony jest określony warunek, z możliwością manipulacji inicjalizacją, warunkiem oraz inkrementacją w każdej iteracji:
+
+        console.log("for ... ");
+        for (let i = 0; i < arr.length; i++) 
+        {
+            console.log(arr[i]);
+        }
+  
+#### 2. **Pętla `for...in`**
+- **Zastosowanie:** Iteracja po **właściwościach obiektów** lub **indeksach tablic**.
+- **Działanie:** Iteruje po kluczach obiektu lub indeksach tablicy. Może również zwrócić właściwości dziedziczone obiektu.
+
+        for (let index in arr) 
+        {
+            console.log(index, arr[index]);
+        }
+
+
+#### 3. **Pętla `for...of`**
+- **Zastosowanie:** Iteracja po **wartościach** elementów tablicy, kolekcji, łańcuchach znaków, Mapach, Setach itp.
+- **Działanie:** Pętla zwraca bezpośrednio elementy kolekcji, co jest wygodne w przypadku, gdy nie potrzebujemy indeksów.
+
+        for (let el of arr)
+        {
+            console.log(el)
+        }
+
+---
+
+### **Pętla `while`**
+- **Zastosowanie:** Do wykonywania kodu, dopóki warunek jest prawdziwy.
+- **Działanie:** Pętla sprawdza warunek przed każdą iteracją, wykonując kod, dopóki warunek jest spełniony. Jeśli warunek początkowy jest fałszywy, kod w pętli nie wykona się ani razu.
+
+### **Pętla `do...while`**
+- **Zastosowanie:** Podobna do `while`, ale sprawdzenie warunku odbywa się po wykonaniu kodu, co zapewnia, że pętla wykona się przynajmniej raz.
+  
+---
+
+### **Instrukcja warunkowa `if-else`**
+- **Zastosowanie:** Do podejmowania decyzji na podstawie spełnionych warunków.
+- **Działanie:** Sprawdza, czy warunek jest prawdziwy, a jeśli tak, wykonuje blok kodu w części `if`. W przeciwnym razie wykonuje blok kodu w części `else`.
+
+### **Instrukcja warunkowa `switch`**
+- **Zastosowanie:** Alternatywa dla wielu `if-else`, gdy mamy wiele możliwości, z których jedna zostanie wybrana w zależności od wartości zmiennej.
+- **Działanie:** Porównuje wyrażenie z różnymi przypadkami (`case`), a kiedy znajdzie dopasowanie, wykonuje odpowiedni blok kodu. W przypadku braku dopasowania wykonuje kod w `default`.

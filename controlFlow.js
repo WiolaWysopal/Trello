@@ -51,3 +51,4 @@ rl.question("Enter number of points [0-100]: ", (score) =>
     rl.close();
     }
 );
+
