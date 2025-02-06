@@ -346,3 +346,15 @@ const add = function(a, b)
 };
 ```
 
+## **`Arrow Functions` oraz `this`**
+
+### **Arrow Functions (Funkcje Strzałkowe)**
+
+- **Składnia**: Funkcje strzałkowe są krótszą wersją tradycyjnych funkcji. Zamiast używać słowa kluczowego `function`, używają operatora `=>`.
+- **Brak własnego `this`**: Funkcje strzałkowe nie mają swojego własnego kontekstu `this`, dziedziczą go z otaczającego zakresu (np. z obiektu, w którym są wywoływane).
+- **Krótsza składnia**: Dla funkcji, które mają tylko jedno wyrażenie, możliwe jest pominięcie słowa kluczowego `return` i nawiasów.
+
+### **`this` w Arrow Functions**
+
+`this` w JavaScript odnosi się do kontekstu, w którym funkcja jest wywoływana. W funkcjach tradycyjnych `this` wskazuje na obiekt, który wywołuje metodę (np. obiekt, w którym metoda jest zdefiniowana), natomiast w funkcjach strzałkowych `this` dziedziczy wartość z otaczającego kontekstu, w którym funkcja została zdefiniowana, co oznacza, że nie odnosi się do obiektu wywołującego funkcję, ale do kontekstu globalnego lub tego, w którym funkcja została utworzona.
+
