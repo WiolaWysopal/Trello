@@ -319,3 +319,30 @@ Metoda `Object.is()` porównuje dwie wartości pod kątem równości. Zwraca `tr
 ### **Instrukcja warunkowa `switch`**
 - **Zastosowanie:** Alternatywa dla wielu `if-else`, gdy mamy wiele możliwości, z których jedna zostanie wybrana w zależności od wartości zmiennej.
 - **Działanie:** Porównuje wyrażenie z różnymi przypadkami (`case`), a kiedy znajdzie dopasowanie, wykonuje odpowiedni blok kodu. W przypadku braku dopasowania wykonuje kod w `default`.
+
+## **Funkcje i wyrażenia funkcyjne**
+
+#### **Funkcja**
+- Definiowana za pomocą słowa kluczowego `function`.
+- Jest hoistowana (przenoszona na początek zakresu).
+- Może być wywoływana przed jej deklaracją.
+
+```javascript
+function add(a, b) 
+{
+    return a + b;
+};
+```
+
+#### **Wyrażenie funkcyjne**
+- Funkcja przypisana do zmiennej.
+- Nie jest hoistowana, dostępna dopiero po przypisaniu.
+- Często używana w funkcjach wyższego rzędu.
+
+```javascript
+const add = function(a, b) 
+{
+    return a + b;
+};
+```
+
