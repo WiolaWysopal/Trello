@@ -358,3 +358,28 @@ const add = function(a, b)
 
 `this` w JavaScript odnosi się do kontekstu, w którym funkcja jest wywoływana. W funkcjach tradycyjnych `this` wskazuje na obiekt, który wywołuje metodę (np. obiekt, w którym metoda jest zdefiniowana), natomiast w funkcjach strzałkowych `this` dziedziczy wartość z otaczającego kontekstu, w którym funkcja została zdefiniowana, co oznacza, że nie odnosi się do obiektu wywołującego funkcję, ale do kontekstu globalnego lub tego, w którym funkcja została utworzona.
 
+## **Funkcje natychmiastowe - `Immediately Invoked Function Expressions`**
+
+_Natychmiastowo Wywoływane Wyrażenie Funkcyjne_, znane jako `IIFE` (ang. _Immediately Invoked Function Expression_), to funkcja w JW, która jest definiowana i natychmiast wywoływana. Pozwala to na utworzenie nowego zakresu zmiennych, izolując kod od zanieczyszczenia globalnego środowiska.
+
+**Definicja IIFE:**
+
+`IIFE` to funkcja anonimowa (bez nazwy), która jest natychmiast wywoływana po jej zdefiniowaniu. Aby to osiągnąć, funkcję umieszcza się w nawiasach, tworząc wyrażenie funkcyjne, a następnie dodaje kolejne nawiasy do jej wywołania. Przykład:
+
+```javascript
+(function() {
+    // Kod wewnątrz IIFE
+})();
+```
+
+**alternatywnie:**
+
+```javascript
+(function() {
+    // Kod wewnątrz IIFE
+}());
+```
+
+**Zmienne zdefiniowane w IIFE:**
+
+Zadeklarowane w takiej funkcji zmienne nie są dostępne z zewnątrz, chyba że zostaną zwrócone instukcją `return`. Aby uzyskać dostęp do zmiennych zadeklarowanych wewnątrz `IIFE` należy utworzyć zmienną, do której należy przypisać tę funkcję. W ciele funkcji należy zamieścić instrukcje zwracające zmienne. Odwołać się do tych zmiennych można poprzez `nazwa_funkcji.nazwa_zmiennej`.
