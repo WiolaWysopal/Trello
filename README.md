@@ -405,7 +405,7 @@ W JavaScript operator dzielenia (`/`) działa zgodnie ze standardem `IEEE 754`, 
 - `!` (`NOT`):
     - Neguje wartość – jeśli była `truthy`, staje się `falsy` i odwrotnie.
 
-#### Short-circuit evaluation
+#### _Short-circuit evaluation_
 
 _Short-circuit evaluation_ oznacza, że operacje `&&` i `||` kończą działanie, gdy wynik jest już przesądzony – np. w `false && [druga_wartość]` druga wartość nie jest sprawdzana, bo wynik i tak będzie `false`. To pozwala na skrócone zapisy, np. `user.name || "Anonim"`.
 
@@ -420,9 +420,9 @@ _Short-circuit evaluation_ oznacza, że operacje `&&` i `||` kończą działanie
     - undefined
     - NaN (Not a Number)
 
-#### Nullish Coalescing
+#### _Nullish Coalescing_
 
-**Nullish Coalescing** (`??`) zwraca pierwszą wartość, która nie jest `null` ani `undefined`. Przykłady:
+**_Nullish Coalescing_** (`??`) zwraca pierwszą wartość, która nie jest `null` ani `undefined`. Przykłady:
 
 ```javascript
     console.log(null ?? "Domyślna");    // "Domyślna"
@@ -434,3 +434,12 @@ _Short-circuit evaluation_ oznacza, że operacje `&&` i `||` kończą działanie
     console.log(null ?? undefined);     // undefinded
     console.log(undefined ?? null);     // null
 ```
+
+## _Strict Mode_:
+
+`Strict Mode` to specjalny tryb w JS, który wprowadza bardziej rygorystyczne zasady pisania kodu, eliminując niektóre niebezpieczne konstrukcje i ułatwiając wykrywanie błędów. Można go włączyć, dodając `"use strict";` na początku skryptu lub funkcji. W trybie `strict` nie można: 
+- używać niezadeklarowanych zmiennych, 
+- powielać nazw parametrów w funkcjach, przypisywać wartości do stałych (`const`), 
+- stosować niebezpiecznych konstrukcji, takich jak `eval` czy `arguments`. 
+
+Używanie `Strict Mode` sprawia, że kod jest bezpieczniejszy, bardziej czytelny i zgodny z nowoczesnymi standardami JS.
