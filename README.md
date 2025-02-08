@@ -458,5 +458,17 @@ Uruchamiając skrypt w konsoli - zarówno w `strict mode` jak i w trybie normaln
 - W funkcjach/metodach w obiektach – `this` wskazuje na obiekt
 - W globalnym kontekście – `this` to `window` (lub `global` w Node.js)
 - W trybie `strict` – `this` w funkcji jest `undefined`
-- W funkcjach strzałkowych – `this` dziedziczy z otaczającego kontekstu
+- W funkcjach strzałkowych – `this` dziedziczy z otaczającego kontekstu, a nie z obiektu (tak jakby poziom wyżej)
+
+### Jawne wiązanie `this`:
+
+**Jawne wiązanie `this`** to technika, w której wymuszamy, do jakiego obiektu ma odnosić się `this`, używając metod `.call()`, `.apply()` lub `.bind()`:
+
+- `.call()` przekazuje argumenty osobno, np. `showAllIdentity.call(dog, "Dog", 6)`
+- `.apply()` przekazuje argumenty w tablicy, np. `showAllIdentity.apply(dog, ["Dog", 6])`
+- `.bind()` tworzy nową funkcję, ale wymaga późniejszego przekazania argumentów, np. 
+`const boundFn2 = showAllIdentity.bind(rat);
+boundFn2("Rat", 2)`
+
+Jawne wiązanie pozwala zignorować kontekst i przypisać `this` konkretnemu obiektowi.
 
