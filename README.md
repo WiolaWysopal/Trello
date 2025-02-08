@@ -443,3 +443,8 @@ _Short-circuit evaluation_ oznacza, że operacje `&&` i `||` kończą działanie
 - stosować niebezpiecznych konstrukcji, takich jak `eval` czy `arguments`. 
 
 Używanie `Strict Mode` sprawia, że kod jest bezpieczniejszy, bardziej czytelny i zgodny z nowoczesnymi standardami JS.
+
+### `This` w `Strict Mode`: 
+
+Uruchamiając skrypt w konsoli - zarówno w `strict mode` jak i w trybie normalnym - dla `this` program zwróci `undefined`. Dla `this` bez `strict mode` w przeglądarce zostanie zwrócona wartość `this: [object Window]`. Natomiast dla `strict mode` w przeglądarce zostanie zwrócona wartość `undefined`.
+
