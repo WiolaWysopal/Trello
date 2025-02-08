@@ -383,3 +383,54 @@ _Natychmiastowo Wywoływane Wyrażenie Funkcyjne_, znane jako `IIFE` (ang. _Imme
 **Zmienne zdefiniowane w IIFE:**
 
 Zadeklarowane w takiej funkcji zmienne nie są dostępne z zewnątrz, chyba że zostaną zwrócone instukcją `return`. Aby uzyskać dostęp do zmiennych zadeklarowanych wewnątrz `IIFE` należy utworzyć zmienną, do której należy przypisać tę funkcję. W ciele funkcji należy zamieścić instrukcje zwracające zmienne. Odwołać się do tych zmiennych można poprzez `nazwa_funkcji.nazwa_zmiennej`.
+
+## Wyrażenia i operatory:
+
+### Operator dzielenia:
+
+W JavaScript operator dzielenia (`/`) działa zgodnie ze standardem `IEEE 754`, zwracając liczby zmiennoprzecinkowe. Może prowadzić do utraty precyzji (np. `10/3` zwraca `3.3333333333333335`). Dzielenie przez `0` zwraca `Infinity` lub `-Infinity`, a `0/0` daje `NaN`.
+
+### Operatory wartości logicznych:
+
+- `&&` (`AND`): 
+    – Sprawdza wartości od lewej do prawej.
+    - Jeśli znajdzie pierwszą `falsy`, to ją zwraca i nie sprawdza dalej.
+    - Jeśli wszystkie wartości są `truthy`, zwraca ostatnią `truthy`.
+
+- `||` (`OR`):
+    - Sprawdza wartości od lewej do prawej.
+    - Jeśli znajdzie pierwszą `truthy`, to ją zwraca i nie sprawdza dalej.
+    - Jeśli wszystkie są `falsy`, zwraca ostatnią `falsy`.
+
+- `!` (`NOT`):
+    - Neguje wartość – jeśli była `truthy`, staje się `falsy` i odwrotnie.
+
+#### Short-circuit evaluation
+
+_Short-circuit evaluation_ oznacza, że operacje `&&` i `||` kończą działanie, gdy wynik jest już przesądzony – np. w `false && [druga_wartość]` druga wartość nie jest sprawdzana, bo wynik i tak będzie `false`. To pozwala na skrócone zapisy, np. `user.name || "Anonim"`.
+
+    Co jest truthy a co falsy?
+    
+    Truthy to wszystko oprócz kilku wyjątków:
+
+    - false
+    - 0 (i -0, 0n – zero jako BigInt)
+    - "" (pusty string)
+    - null
+    - undefined
+    - NaN (Not a Number)
+
+#### Nullish Coalescing
+
+**Nullish Coalescing** (`??`) zwraca pierwszą wartość, która nie jest `null` ani `undefined`. Przykłady:
+
+```javascript
+    console.log(null ?? "Domyślna");    // "Domyślna"
+    console.log(undefined ?? "Domyślna"); // "Domyślna"
+    console.log(0 ?? "Domyślna");       // 0 (bo 0 to nie null ani undefined)
+    console.log("" ?? "Domyślna");      // "" (bo pusty string to nie null ani undefined)
+    console.log(false ?? "Domyślna");   // false (bo false to nie null ani undefined)
+    console.log("Wartość" ?? "Inna");   // "Wartość" (bo nie jest null/undefined)
+    console.log(null ?? undefined);     // undefinded
+    console.log(undefined ?? null);     // null
+```
