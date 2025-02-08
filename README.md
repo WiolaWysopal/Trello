@@ -448,3 +448,15 @@ Używanie `Strict Mode` sprawia, że kod jest bezpieczniejszy, bardziej czytelny
 
 Uruchamiając skrypt w konsoli - zarówno w `strict mode` jak i w trybie normalnym - dla `this` program zwróci `undefined`. Dla `this` bez `strict mode` w przeglądarce zostanie zwrócona wartość `this: [object Window]`. Natomiast dla `strict mode` w przeglądarce zostanie zwrócona wartość `undefined`.
 
+## `This`:
+
+- Gdy metoda jest wywoływana bezpośrednio na obiekcie (np. `person.greet()`), `this` wskazuje na obiekt `person`, co prowadzi do poprawnego działania i wyświetlenia `"Alice"`.
+- Gdy metoda zostaje przypisana do zmiennej (np. `greetRef()`) i wywołana jako samodzielna funkcja, `this` traci kontekst obiektu `person` i wskazuje na kontekst globalny. W trybie strict mode wartość `this` jest `undefined`, co powoduje, że `this.name` jest również `undefined`.
+
+### Wartość `this` w zależności od kontekstu:
+
+- W funkcjach/metodach w obiektach – `this` wskazuje na obiekt
+- W globalnym kontekście – `this` to `window` (lub `global` w Node.js)
+- W trybie `strict` – `this` w funkcji jest `undefined`
+- W funkcjach strzałkowych – `this` dziedziczy z otaczającego kontekstu
+
