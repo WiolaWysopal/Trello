@@ -516,3 +516,48 @@ Asynchroniczność polega na wykonywaniu operacji niezależnie od głównego wą
  Nie trzeba jej ręcznie deklarować – JavaScript przekazuje ją samoczynnie jako pierwszy parametr funkcji .then(...).
 ```
 
+### Najnowsza składnia `asynch`/`await`:
+
+`Asynch` oraz `Await` to nowa składnia umożliwia ona bardziej czytelne i intuicyjne zarządzanie kodem asynchronicznym niż tradycyjne podejście oparte na `callbackach` lub `Promise`.
+
+- `async` oznacza, że funkcja zawsze zwraca `Promise`. Nawet jeśli zwróci wartość zwykłą, zostanie ona opakowana w `Promise`.
+- `await` – zatrzymuje wykonanie kodu wewnątrz funkcji `async` do momentu, aż `Promise` zostanie rozwiązany.
+
+```javascript
+// W składni await nie występuje osobny blok kodu – 
+// jest to po prostu słowo kluczowe używane wewnątrz 
+// funkcji oznaczonej jako async
+    async function nazwaFunkcji() 
+    {
+    let wynik = await operacjaAsynchroniczna();
+    return wynik;
+    }
+```
+
+### Łańcuchowanie w `async/await`:
+
+W `async/await` można tworzyć łańcuchy wywołań, umieszczając kolejne instrukcje `await` jedna po drugiej. Oznacza to, że każda operacja czeka na zakończenie poprzedniej, zanim przejdzie do następnej. Przykład:
+
+```javascript
+async function fetchData()
+{
+    try {
+    var waitie = await getDataPromise();
+    var waitie2 = await getDataPromise();
+    var waitie3 = await getDataPromise();
+
+    return [waitie, waitie2, waitie3];
+    } catch(err)
+    {
+        console.log(err.message);
+    }
+}
+```
+
+### Wnioski:
+
+- `async/await` sprawia, że kod wygląda bardziej synchronicznie, co ułatwia czytanie i rozumienie go.
+- Nie trzeba używać `.then()` i `.catch()`, które mogą tworzyć zagnieżdżenia i sprawiać, że kod staje się chaotyczny.
+- Łatwiej obsłużyć błędy przy użyciu `try...catch` niż `.`catch()`.
+- Trzeba tylko pamiętać, że funkcja `async` zawsze zwraca `Promise`.
+
