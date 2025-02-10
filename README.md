@@ -472,3 +472,23 @@ boundFn2("Rat", 2)`
 
 Jawne wiązanie pozwala zignorować kontekst i przypisać `this` konkretnemu obiektowi.
 
+## Asynchroniczność:
+
+### `Callbacki`, `Promises` i `Async/Await`:
+
+```
+Synchroniczność oznacza, że kod wykonuje się linia po linii, w ustalonej kolejności. Każda instrukcja musi się zakończyć, zanim zacznie się kolejna. Jeśli jedna operacja trwa długo (np. pobieranie danych z serwera), cały program musi na nią czekać, co może go spowolnić.
+
+Asynchroniczność pozwala na wykonywanie operacji w tle, bez blokowania reszty programu. Dzięki temu można np. pobierać dane z serwera i jednocześnie wykonywać inne zadania. Gdy operacja się zakończy, wynik zostaje zwrócony i można go przetworzyć. To sprawia, że aplikacja działa płynniej i szybciej reaguje na działania użytkownika.
+```
+
+Asynchroniczność polega na wykonywaniu operacji niezależnie od głównego wątku programu, dzięki czemu nie blokują one działania aplikacji. Wykorzystuje się do tego mechanizmy takie jak `callbacki`, `Promises` i `async/await`. Najczęściej stosuje się je przy operacjach wymagających czasu, np. pobieraniu danych z API, odczycie plików czy operacjach na bazach danych. Dzięki temu program może kontynuować działanie, zamiast czekać na zakończenie długotrwałych zadań.
+
+- `Callbacki` to funkcje przekazywane jako argumenty do innych funkcji, które zostaną wywołane po zakończeniu operacji asynchronicznej. Pozwalają kontrolować kolejność wykonywania kodu, ale mogą prowadzić do tzw. _**callback hell**_, czyli trudnego do zrozumienia, zagnieżdżonego kodu.
+- `Promises` to obiekty reprezentujące operacje asynchroniczne, które mogą zakończyć się sukcesem lub błędem. Zamiast zagnieżdżonych funkcji, używa się metod `.then()` do obsługi wyniku i `.catch()` do przechwytywania błędów, co poprawia czytelność kodu.
+- `async/await` pozwala pisać kod w bardziej czytelny sposób, przypominający kod synchroniczny. Słowo kluczowe `async` oznacza, że funkcja zwraca `Promise`, a `await` pozwala zatrzymać jej wykonanie do momentu uzyskania wyniku, co eliminuje konieczność stosowania `.then()`.
+
+#### `setTimeout(kod_do_wykonania, opóźnienie_w_ms)`:
+
+`setTimeout(kod_do_wykonania, opóźnienie_w_ms)` to funkcja, która po upływie określonego czasu jest umieszczana w JS w kolejce do wykonania. Nie zatrzymuje on jednak działania reszty kodu – program wykonuje się dalej, a funkcja z `setTimeout()` uruchomi się dopiero po zadanym czasie.
+
