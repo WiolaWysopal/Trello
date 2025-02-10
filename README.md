@@ -492,3 +492,27 @@ Asynchroniczność polega na wykonywaniu operacji niezależnie od głównego wą
 
 `setTimeout(kod_do_wykonania, opóźnienie_w_ms)` to funkcja, która po upływie określonego czasu jest umieszczana w JS w kolejce do wykonania. Nie zatrzymuje on jednak działania reszty kodu – program wykonuje się dalej, a funkcja z `setTimeout()` uruchomi się dopiero po zadanym czasie.
 
+### `Promise`
+
+`Promise` to obiekt reprezentujący wynik operacji asynchronicznej, która może:
+
+- zakończyć się sukcesem (`fulfilled`) i zwrócić wartość,
+- zakończyć się błędem (`rejected`),
+- być w trakcie oczekiwania (`pending`)
+
+**Obsługa `promises`:**
+- `promise.then()` – obsługa sukcesu
+- `promise.catch()` – obsługa błędu
+- `promise.finally()` – kod wykonujący się zawsze
+
+### Łańcuchowanie `promises`:
+
+Łańcuchowanie `promises` (_Promise chaining_) umożliwia sekwencyjne wykonywanie operacji asynchronicznych, w której każda metoda `.then(...)` otrzymuje wynik poprzedniej i przekazuje go dalej. Dzięki temu unika się zagnieżdżonych `callbacków` (zjawisko _callback hell_), poprawia czytelność kodu i ułatwia obsługę błędów. W łańcuchowaniu wystarczy jedno `.catch(...)`, aby przechwycić błąd z całego łańcucha. Jeśli `.then(...)` zwraca zwykłą wartość, zostaje ona przekazana do następnego `.then(...)`, a jeśli zwraca `Promise`, to kolejne kroki czekają na efekt jego wykonania.
+
+```
+ Aby łańcuchowanie działało poprawnie, każda metoda .then(...) powinna zwracać jakąś wartość lub nową Promise!
+ Gdy then(...) zwróci jakąś wartość (np. return "GO CHAINING";), to ta wartość zostaje przekazana do następnego then(...).
+ Kolejny .then(...) automatycznie przyjmuje tę wartość jako swój argument.
+ Nie trzeba jej ręcznie deklarować – JavaScript przekazuje ją samoczynnie jako pierwszy parametr funkcji .then(...).
+```
+
