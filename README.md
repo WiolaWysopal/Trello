@@ -561,3 +561,13 @@ async function fetchData()
 - Łatwiej obsłużyć błędy przy użyciu `try...catch` niż `.`catch()`.
 - Trzeba tylko pamiętać, że funkcja `async` zawsze zwraca `Promise`.
 
+## `Modules`:
+
+Moduły JavaScript (`ES Modules`, `ESM`) pozwalają na organizację kodu poprzez importowanie i eksportowanie funkcji, zmiennych czy klas między plikami. Są natywnie obsługiwane w przeglądarkach i Node.js (z `"type": "module"` w pliku `package.json`). Sprawiają, że kod jest czytelniejszy.
+
+Aby stworzyć moduł, należy użyć słowa kluczowego `export` przed funkcją, zmienną lub klasą w jednym pliku, a następnie zaimportować je w innym pliku za pomocą `import`. 
+
+### Eksport domyślny:
+
+Eksport domyślny (`export default`) pozwala na eksportowanie jednej wartości, funkcji lub klasy z modułu. Przy imporcie można użyć dowolnej nazwy, co odróżnia go od eksportu nazwanego, gdzie nazwa musi być zgodna z deklaracją. Eksport domyślny jest użyteczny, gdy moduł dostarcza główną funkcjonalność, a dodatkowe elementy mogą być eksportowane nazwane. Należy pamiętać, że w każdym pliku może być **tylko jeden** `export default`.
+
