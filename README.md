@@ -589,3 +589,52 @@ Pliki używające `CommonJS` mają rozszerzenie `.js` lub `.cjs`. Jeśli w `pack
     - `CommonJS` wczytuje moduły synchronicznie
     - `ESM` obsługuje importy asynchroniczne.
 
+## Zarządzanie pamięcią:
+
+### `process.memoryUsage()`:
+
+`process.memoryUsage()` jest metodą wbudowana w Node.js, która zwraca obiekt zawierający dane o zużyciu pamięci.
+
+Właściwości obiektu `process.memoryUsage()` informujące o zużyciu pamięci:
+- `rss` (_Resident Set Size_) – cała pamięć zajmowana przez proces (kod, stos, sterta itd.).
+- `heapTotal` – całkowity przydzielony obszar pamięci sterty
+- `heapUsed` – ile pamięci na stercie jest aktualnie używane
+- `external` – pamięć wykorzystywana przez natywne moduły (np. `Buffery`)
+
+### `GC`:
+
+`GC` (_Garbage Collection_) to mechanizm zarządzania pamięcią, który automatycznie zwalnia nieużywane obiekty z pamięci.
+
+**Działanie `GC`:**
+
+1. **Alokacja pamięci** - przydział pamięci poszczególnym zmiennym, obiektom itd.
+2. **Sprawdzanie, czy obiekt jest używany** – GC analizuje, czy istnieją jakiekolwiek referencje do danego obiektu.
+3. **Zwalnianie pamięci** – jeśli żaden kod nie odwołuje się do obiektu, GC usuwa go z pamięci, co zapobiega wyciekowi pamięci.
+
+```
+W Node.js GC działa automatycznie, ale można go wymusić ręcznie, uruchamiając Node.js z flagą --expose-gc i używając komendy global.gc();
+```
+
+### Ograniczenie podejścia `GC` w różnych przeglądarkach:
+
+1. **Brak `global.gc()` w przeglądarkach**  
+   
+    W przeglądarkach nie ma możliwości jawnego wywołania `gc()`, ponieważ mechanizm zarządzania pamięcią jest wewnętrzny i kontrolowany przez silnik JavaScript (np. V8 w Chrome). Nie ma standardowego API umożliwiającego programistom wymuszenie uruchomienia `GC`.
+
+2. **Wymagana flaga `--expose-gc` w Node.js**  
+   
+    W standardowej konfiguracji Node.js funkcja `global.gc()` nie jest dostępna. Aby jej użyć, należy uruchomić skrypt z flagą `--expose-gc`, np.:
+
+   ```sh
+   node --expose-gc memoryTest.js
+   ```
+    Bez tej flagi wywołanie `global.gc()` spowoduje błąd.
+
+3. **Optymalizacje silnika JavaScript**  
+
+    - Nawet w środowisku Node.js wymuszone wywołanie `gc()` nie gwarantuje natychmiastowego zwolnienia całej pamięci.  
+    - Silnik JS może nadal przechowywać pewne obiekty w pamięci, jeśli uzna, że mogą być ponownie użyte.
+
+4. **Brak kontroli nad GC w przeglądarkach**  
+    
+    - W środowisku przeglądarkowym zarządzanie pamięcią jest automatyczne i nie daje użytkownikowi możliwości ingerencji. `JavaScript Engine` sam decyduje, kiedy przeprowadzi `GC`, bazując na dostępnej pamięci i aktywności aplikacji.
