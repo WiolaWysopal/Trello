@@ -571,3 +571,21 @@ Aby stworzyć moduł, należy użyć słowa kluczowego `export` przed funkcją, 
 
 Eksport domyślny (`export default`) pozwala na eksportowanie jednej wartości, funkcji lub klasy z modułu. Przy imporcie można użyć dowolnej nazwy, co odróżnia go od eksportu nazwanego, gdzie nazwa musi być zgodna z deklaracją. Eksport domyślny jest użyteczny, gdy moduł dostarcza główną funkcjonalność, a dodatkowe elementy mogą być eksportowane nazwane. Należy pamiętać, że w każdym pliku może być **tylko jeden** `export default`.
 
+### `CommonJS`:
+
+`CommonJS` to system modułów używany głównie w Node.js. Pozwala na eksportowanie i importowanie funkcji oraz zmiennych za pomocą `module.exports`i `require()`. W przeciwieństwie do `ECMAScript Modules`, które używają `export` i `import`, `CommonJS` nie jest domyślnie obsługiwany w przeglądarkach bez dodatkowego bundlera.
+
+Pliki używające `CommonJS` mają rozszerzenie `.js` lub `.cjs`. Jeśli w `package.json` nie określono `"type": "module"`, Node.js traktuje wszystkie pliki `.js` jako `CommonJS`. Jeśli `"type": "module"` jest ustawione, aby wymusić `CommonJS`, należy używać rozszerzenia `.cjs`.
+
+#### `ECMAScript Module` a `CommonJS`:
+
+- **Składnia:** 
+    - `CommonJS` używa `module.exports` i `require()` 
+    - `ESM` korzysta z `export` i `import`
+- **Środowisko:**
+    - `CommonJS` jest domyślnie obsługiwany w Node.js 
+    - `ECMAScript Modules` są standardem w nowoczesnych przeglądarkach oraz w Node.js, gdy w `package.json` ustawiono `"type": "module"`
+- **Ładowanie modułów:**
+    - `CommonJS` wczytuje moduły synchronicznie
+    - `ESM` obsługuje importy asynchroniczne.
+
