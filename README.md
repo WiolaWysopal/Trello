@@ -638,3 +638,10 @@ W Node.js GC działa automatycznie, ale można go wymusić ręcznie, uruchamiaj�
 4. **Brak kontroli nad GC w przeglądarkach**  
     
     - W środowisku przeglądarkowym zarządzanie pamięcią jest automatyczne i nie daje użytkownikowi możliwości ingerencji. `JavaScript Engine` sam decyduje, kiedy przeprowadzi `GC`, bazując na dostępnej pamięci i aktywności aplikacji.
+
+## Wyciek pamięci:
+
+- Wyciek pamięci powstaje, gdy usuwamy element DOM, ale pozostawiamy do niego referencję (np. w `event listenerze`).
+- `Garbage Collector` nie zwalnia pamięci, jeśli nadal istnieje odniesienie do obiektu.
+- Aby uniknąć wycieków pamięci, należy usuwać `event listenery` (`removeEventListener`) przed usunięciem elementu oraz zerować zmienne (`= null`).
+
