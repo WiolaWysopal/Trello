@@ -19,10 +19,10 @@ function removeDiv()
     if (leakyDiv) 
     {
         leakyDiv.remove();  // Usuwanie div z DOM
-        //console.log("Div został usunięty, ale event listener nadal istnieje.");
+        console.log("Div został usunięty, ale event listener nadal istnieje.");
         // naprawianie wycieku pamięci:
-        window.removeEventListener("click", logEvent)
-        leakyDiv = null;
-        console.log("Div został usunięty, a wraz z nim należace do niego zmienne i eventy.");
+        //window.removeEventListener("click", logEvent)
+        //leakyDiv = null;
+        //console.log("Div został usunięty, a wraz z nim należace do niego zmienne i eventy.");
     }
 }

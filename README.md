@@ -645,3 +645,11 @@ W Node.js GC działa automatycznie, ale można go wymusić ręcznie, uruchamiaj�
 - `Garbage Collector` nie zwalnia pamięci, jeśli nadal istnieje odniesienie do obiektu.
 - Aby uniknąć wycieków pamięci, należy usuwać `event listenery` (`removeEventListener`) przed usunięciem elementu oraz zerować zmienne (`= null`).
 
+## Chrome DevTools:
+
+- `Breakpoint` - miejsce w kodzie, w którym przeglądarka zatrzymuje wykonywanie skryptu, aby umożliwić programiście jego analizę 
+- `Conditional breakpoint` działa jak zwykły breakpoint, ale kod zatrzymuje się tylko wtedy, gdy spełniony jest określony warunek
+- `Step over` (`F10`) – przejdź do następnej linii w tej samej funkcji
+- `Step into` (`F11`) – wejdź do wywoływanej funkcji
+- `Step out` (`Shift + F11`) – wyjdź z funkcji
+
