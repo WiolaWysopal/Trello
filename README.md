@@ -653,3 +653,25 @@ W Node.js GC działa automatycznie, ale można go wymusić ręcznie, uruchamiaj�
 - `Step into` (`F11`) – wejdź do wywoływanej funkcji
 - `Step out` (`Shift + F11`) – wyjdź z funkcji
 
+```
+DevTools pomija breakpointy przy szybkich pętlach. Przebieg pętli można spowolnić, np.:
+- console.log() – spowalnia przez operacje na konsoli.
+- debugger; – zatrzymuje kod w DevTools.
+- setTimeout() – wprowadza opóźnienie między iteracjami.
+- await new Promise(resolve => setTimeout(resolve, X)); – asynchroniczne opóźnienie.
+- performance.now() – kontroluje czas między iteracjami.
+- Atomics.wait() – blokuje wątek (tylko Web Workers).
+```
+
+### `Flame Chart`:
+
+#### Jak czytać Flame Chart?
+
+- Oś pozioma (X) - reprezentuje czas wykonania skryptu.
+- Oś pionowa (Y) - pokazuje stos wywołań funkcji (głębsze poziomy oznaczają kolejne wywołania funkcji).
+- Szerokość bloku - im szerszy, tym dłużej trwała funkcja.
+- Kolory - wskazują różne typy operacji:
+    - Żółty – JavaScript
+    - Fioletowy – operacje układu strony (`layout`)
+    - Zielony – malowanie (`painting`)
+    - Niebieski – operacje sieciowe (`network`)
