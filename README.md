@@ -665,6 +665,17 @@ DevTools pomija breakpointy przy szybkich pętlach. Przebieg pętli można spowo
 
 ### `Flame Chart`:
 
+#### Tworzenie FlameChartu:
+
+1. Otwórz pierwszą kartę z DevToolsem.
+2. Przejdź do `Performance > record` (albo `reload and record`)
+3. Otwórz kolejną kartę z DevToolsem.
+4. Przejdź do `Console` i wklej kod.
+5. Poczekaj kilka sekund.
+6. Wróć do karty z uruchomionym `record` (albo `reload and record`).
+7. Kliknij STOP.
+8. Pojawi się wykres FlameChart, który należy przeanalizować.
+
 #### Jak czytać Flame Chart?
 
 - Oś pozioma (X) - reprezentuje czas wykonania skryptu.
@@ -684,4 +695,3 @@ DevTools pomija breakpointy przy szybkich pętlach. Przebieg pętli można spowo
 - Kolejność wywołań funkcji prowadzących do błędu.
 
 Ślad stosu można odczytać z komunikatów konsoli.
-
