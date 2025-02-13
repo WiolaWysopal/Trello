@@ -672,6 +672,16 @@ DevTools pomija breakpointy przy szybkich pętlach. Przebieg pętli można spowo
 - Szerokość bloku - im szerszy, tym dłużej trwała funkcja.
 - Kolory - wskazują różne typy operacji:
     - Żółty – JavaScript
-    - Fioletowy – operacje układu strony (`layout`)
-    - Zielony – malowanie (`painting`)
+    - Fioletowy – operacje układu strony (`layout`; etap renderowania strony - obliczanie pozycji i rozmiary elementów na podstawie stylów CSS i struktury HTML)
+    - Zielony – malowanie (`painting`; etap renderowania strony - rosowanie elementów na ekranie)
     - Niebieski – operacje sieciowe (`network`)
+
+## `Stack trace`
+
+`Stack trace` (ślad stosu) to informacja o błędzie w programie, która pokazuje:
+- Jakie funkcje były wywoływane przed wystąpieniem błędu.
+- W którym pliku i w której linii kodu wystąpił błąd.
+- Kolejność wywołań funkcji prowadzących do błędu.
+
+Ślad stosu można odczytać z komunikatów konsoli.
+
